@@ -59,6 +59,9 @@ deb:
 	dch -v $(long_ver) "Automatically built package"
 	dpkg-buildpackage -uc -us
 
+deb-dep:
+	apt-get install -y check dpkg-dev git gcc libasyncns-dev memcached valgrind
+
 clean:
 	$(RM) $(STLIB_A) $(SHLIB_V) $(SHLIB_SO) $(OBJ)
 	$(MAKE) -C tests clean
